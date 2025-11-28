@@ -1,0 +1,93 @@
+E-Shop Checkout - UI/UX Guidelines
+====================================
+
+1. FORM VALIDATION RULES
+------------------------
+
+1.1 Name Field
+- Required field
+- Minimum length: 2 characters
+- Error message: "Name must be at least 2 characters"
+- Error display: Red text below the field
+
+1.2 Email Field
+- Required field
+- Must contain @ symbol and domain (e.g., user@example.com)
+- Error message: "Please enter a valid email address"
+- Error display: Red text below the field
+
+1.3 Address Field
+- Required field
+- Minimum length: 10 characters
+- Error message: "Address must be at least 10 characters"
+- Error display: Red text below the field
+
+1.4 Discount Code Field
+- Optional field
+- Validation occurs on "Apply" button click
+- Success: Show green text "Discount applied!"
+- Error: Show red text with specific error message
+
+2. BUTTON STYLES
+----------------
+
+2.1 Primary Buttons
+- "Pay Now" button: Green background (#28a745), white text
+- "Apply" (discount): Blue background (#007bff), white text
+- "Add to Cart": Blue background (#007bff), white text
+
+2.2 Button States
+- Hover: Slightly darker shade
+- Disabled: Gray background (#6c757d), cursor not-allowed
+- Active: Pressed appearance
+
+3. COLOR SCHEME
+---------------
+
+3.1 Status Colors
+- Success messages: Green (#28a745)
+- Error messages: Red (#dc3545)
+- Warning messages: Yellow (#ffc107)
+- Info messages: Blue (#17a2b8)
+
+3.2 Text Colors
+- Primary text: Dark gray (#333333)
+- Secondary text: Medium gray (#666666)
+- Error text: Red (#dc3545)
+- Success text: Green (#28a745)
+
+4. LAYOUT REQUIREMENTS
+----------------------
+
+4.1 Page Structure
+- Products section: Left or top
+- Cart summary: Right sidebar or below products
+- User details form: Below cart
+- Payment section: Bottom of page
+
+4.2 Responsive Behavior
+- Mobile: Single column layout
+- Desktop: Two-column layout where applicable
+
+5. USER FEEDBACK
+----------------
+
+5.1 Loading States
+- Show spinner or "Processing..." text during operations
+- Disable buttons during processing
+
+5.2 Success States
+- Payment success: Display prominent green success message
+- Message text: "Payment Successful! Your order has been placed."
+
+5.3 Error States
+- Form errors: Inline red text below each invalid field
+- General errors: Alert box at top of form
+
+6. ACCESSIBILITY
+----------------
+
+- All form fields must have associated labels
+- Error messages must be programmatically associated with fields
+- Buttons must have descriptive text
+- Color alone should not convey information (use icons/text too)

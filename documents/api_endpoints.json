@@ -1,0 +1,138 @@
+{
+  "api_version": "1.0",
+  "base_url": "/api/v1",
+  "endpoints": [
+    {
+      "name": "Apply Coupon",
+      "method": "POST",
+      "path": "/apply_coupon",
+      "description": "Validates and applies a discount code to the current order",
+      "request": {
+        "content_type": "application/json",
+        "body": {
+          "code": {
+            "type": "string",
+            "required": true,
+            "description": "The discount code to apply"
+          }
+        }
+      },
+      "response": {
+        "success": {
+          "status_code": 200,
+          "body": {
+            "success": true,
+            "discount_percent": 15,
+            "message": "Discount applied!"
+          }
+        },
+        "error": {
+          "status_code": 400,
+          "body": {
+            "success": false,
+            "message": "Invalid discount code"
+          }
+        }
+      }
+    },
+    {
+      "name": "Submit Order",
+      "method": "POST",
+      "path": "/submit_order",
+      "description": "Submits the final order for processing",
+      "request": {
+        "content_type": "application/json",
+        "body": {
+          "customer": {
+            "name": {
+              "type": "string",
+              "required": true,
+              "min_length": 2
+            },
+            "email": {
+              "type": "string",
+              "required": true,
+              "format": "email"
+            },
+            "address": {
+              "type": "string",
+              "required": true,
+              "min_length": 10
+            }
+          },
+          "cart": {
+            "items": {
+              "type": "array",
+              "items": {
+                "product_id": "string",
+                "quantity": "integer"
+              }
+            }
+          },
+          "shipping_method": {
+            "type": "string",
+            "enum": ["standard", "express"],
+            "required": true
+          },
+          "payment_method": {
+            "type": "string",
+            "enum": ["credit_card", "paypal"],
+            "required": true
+          },
+          "discount_code": {
+            "type": "string",
+            "required": false
+          }
+        }
+      },
+      "response": {
+        "success": {
+          "status_code": 200,
+          "body": {
+            "success": true,
+            "order_id": "ORD-12345",
+            "message": "Payment Successful! Your order has been placed.",
+            "total": 85.99
+          }
+        },
+        "error": {
+          "status_code": 400,
+          "body": {
+            "success": false,
+            "errors": ["List of validation errors"]
+          }
+        }
+      }
+    },
+    {
+      "name": "Get Cart Total",
+      "method": "GET",
+      "path": "/cart/total",
+      "description": "Calculates the current cart total including discounts and shipping",
+      "request": {
+        "query_params": {
+          "discount_code": {
+            "type": "string",
+            "required": false
+          },
+          "shipping_method": {
+            "type": "string",
+            "required": false,
+            "default": "standard"
+          }
+        }
+      },
+      "response": {
+        "success": {
+          "status_code": 200,
+          "body": {
+            "subtotal": 100.00,
+            "discount": 15.00,
+            "shipping": 0.00,
+            "total": 85.00
+          }
+        }
+      }
+    }
+  ]
+}
