@@ -1,4 +1,4 @@
-# Core - let versions resolve automatically
+# Core
 streamlit
 fastapi
 uvicorn
@@ -9,8 +9,11 @@ pypdf
 python-docx
 beautifulsoup4
 
-# Vector Database - use newer version
+# Vector Database
 chromadb>=0.5.0
+
+# Embeddings - REQUIRED for ChromaDB
+sentence-transformers
 
 # LLM
 groq>=0.11.0
