@@ -16,12 +16,12 @@ chromadb==0.4.22
 # Embeddings
 sentence-transformers==2.3.1
 
-# LLM Integration (using Groq - free and fast)
-groq==0.4.2
+# LLM Integration
+groq==0.12.0
 
 # Web Scraping / HTML Parsing
 beautifulsoup4==4.12.3
-lxml==5.1.0
+html5lib
 
 # Selenium for testing
 selenium==4.17.2

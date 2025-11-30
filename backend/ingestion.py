@@ -109,7 +109,7 @@ class DocumentParser:
         if isinstance(content, bytes):
             content = content.decode('utf-8')
         
-        soup = BeautifulSoup(content, 'lxml')
+        soup = BeautifulSoup(content, 'html.parser')
         
         # Remove script and style elements
         for element in soup(['script', 'style']):
