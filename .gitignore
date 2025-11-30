@@ -25,3 +25,5 @@ Thumbs.db
 
 # Byte-compiled files
 *.pyc
+
+.streamlit/secrets.toml
